@@ -1,0 +1,21 @@
+checks for comments :
+  - schema :
+      fail :
+        when required column missing :
+          - video_id
+          - comment_text
+          - likes
+          - replies
+        when wrong column type :
+          video_id: string
+          comment_text: string
+          likes: integer
+          replies: integer
+  - invalid_count(video_id) = 0 :
+      valid regex: ^[a-zA-Z0-9\-\_]{11}$
+  - invalid_count(replies) = 0 :
+      valid min: 0
+  - max(replies) > 0
+  - invalid_count(likes) = 0 :
+      valid min: 0
+  - max(likes) > 0
